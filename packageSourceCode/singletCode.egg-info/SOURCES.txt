@@ -1,0 +1,13 @@
+LICENSE
+README.md
+__version__
+pyproject.toml
+singletCode/__init__.py
+singletCode/count_doublets_utils_copy.py
+singletCode/general_utility_functions.py
+singletCode/get_singlets.py
+singletCode.egg-info/PKG-INFO
+singletCode.egg-info/SOURCES.txt
+singletCode.egg-info/dependency_links.txt
+singletCode.egg-info/requires.txt
+singletCode.egg-info/top_level.txt
