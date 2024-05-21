@@ -1,9 +1,8 @@
 Metadata-Version: 2.1
 Name: singletCode
-Version: 1.0.0
+Version: 1.2.0
 Summary: singletCode is a package to identify true singlets in lineage-barcoded sequencing data.
-Author-email: Ziyang Zhang <ziyang.zhang1@northwestern.edu>
-Maintainer-email: Keerthana M Arun <keerthana.melekotearun@northwestern.edu>
+Author-email: Keerthana M Arun <keerthana.melekotearun@northwestern.edu>, Ziyang Zhang <ziyang.zhang1@northwestern.edu>
 License: BSD 3-Clause License
         
         Copyright (c) 2023 Goyal Lab
@@ -34,7 +33,7 @@ License: BSD 3-Clause License
         OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
         OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 Project-URL: Homepage, https://goyallab.github.io/SingletCodeWebsite/
-Project-URL: Documentation, https://goyallab.github.io/SingletCodeWebsite/packageDocumentation/
+Project-URL: Documentation, https://goyallab.github.io/SingletCodeWebsite/
 Classifier: Programming Language :: Python :: 3
 Classifier: License :: OSI Approved :: BSD License
 Classifier: Intended Audience :: Science/Research
@@ -55,7 +54,7 @@ singletCode is a framework designed to identify true singlets in barcoded sequen
 
 ## Getting Started
 
-For detailed instructions on how to use SingletCode, including setup, input file formats, and execution commands, please visit our [documentation](https://goyallab.github.io/SingletCodeWebsite/packageDocumentation/).
+For detailed instructions on how to use SingletCode, including setup, input file formats, and execution commands, please visit our [documentation](https://goyallab.github.io/SingletCodeWebsite/).
 
 ## Features
 
@@ -65,11 +64,11 @@ For detailed instructions on how to use SingletCode, including setup, input file
 
 ## Installation
 
-To install SingletCode, ensure that you have a compatible Python environment. For installation instructions, dependencies, and more, refer to the [SingletCode documentation](https://goyallab.github.io/SingletCodeWebsite/packageDocumentation/).
+To install SingletCode, ensure that you have a compatible Python environment. For installation instructions, dependencies, and more, refer to the [SingletCode documentation](https://goyallab.github.io/SingletCodeWebsite/).
 
 ## Usage
 
-After installation, you can run SingletCode with your dataset by following the detailed usage instructions available in our [documentation](https://goyallab.github.io/SingletCodeWebsite/packageDocumentation/).
+After installation, you can run SingletCode with your dataset by following the detailed usage instructions available in our [documentation](https://goyallab.github.io/SingletCodeWebsite/).
 
 ## Contributing
 
@@ -79,4 +78,4 @@ We welcome contributions to the SingletCode project! If you have suggestions, bu
 
 SingletCode is made available under a standard open-source license. For more details, see the LICENSE file in the repository.
 
-For more information about how singletCode works and using it for your sequencing data, please visit [SingletCode's homepage](https://goyallab.github.io/SingletCodeWebsite/).
+For more information, please visit [SingletCode's homepage](https://goyallab.github.io/SingletCodeWebsite/).

@@ -7,10 +7,8 @@ name = "singletCode"
 dynamic = ["version"]
 requires-python = ">=3.7"
 authors = [
-    { name = "Ziyang Zhang", email = "ziyang.zhang1@northwestern.edu" }
-]
-maintainers = [
     { name = "Keerthana M Arun", email = "keerthana.melekotearun@northwestern.edu" },
+    { name = "Ziyang Zhang", email = "ziyang.zhang1@northwestern.edu" }
 ]
 description = "singletCode is a package to identify true singlets in lineage-barcoded sequencing data."
 readme = "README.md"
@@ -32,7 +30,7 @@ dependencies = [
 
 [project.urls]
 "Homepage" = "https://goyallab.github.io/SingletCodeWebsite/"
-"Documentation" = "https://goyallab.github.io/SingletCodeWebsite/packageDocumentation/"
+"Documentation" = "https://goyallab.github.io/SingletCodeWebsite/"
 
 [tool.setuptools.dynamic]
 version = {file = ["__version__"]}

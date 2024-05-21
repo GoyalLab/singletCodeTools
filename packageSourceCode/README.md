@@ -4,7 +4,7 @@ singletCode is a framework designed to identify true singlets in barcoded sequen
 
 ## Getting Started
 
-For detailed instructions on how to use SingletCode, including setup, input file formats, and execution commands, please visit our [documentation](https://goyallab.github.io/SingletCodeWebsite/packageDocumentation/).
+For detailed instructions on how to use SingletCode, including setup, input file formats, and execution commands, please visit our [documentation](https://goyallab.github.io/SingletCodeWebsite/).
 
 ## Features
 
@@ -14,11 +14,11 @@ For detailed instructions on how to use SingletCode, including setup, input file
 
 ## Installation
 
-To install SingletCode, ensure that you have a compatible Python environment. For installation instructions, dependencies, and more, refer to the [SingletCode documentation](https://goyallab.github.io/SingletCodeWebsite/packageDocumentation/).
+To install SingletCode, ensure that you have a compatible Python environment. For installation instructions, dependencies, and more, refer to the [SingletCode documentation](https://goyallab.github.io/SingletCodeWebsite/).
 
 ## Usage
 
-After installation, you can run SingletCode with your dataset by following the detailed usage instructions available in our [documentation](https://goyallab.github.io/SingletCodeWebsite/packageDocumentation/).
+After installation, you can run SingletCode with your dataset by following the detailed usage instructions available in our [documentation](https://goyallab.github.io/SingletCodeWebsite/).
 
 ## Contributing
 
@@ -28,4 +28,4 @@ We welcome contributions to the SingletCode project! If you have suggestions, bu
 
 SingletCode is made available under a standard open-source license. For more details, see the LICENSE file in the repository.
 
-For more information about how singletCode works and using it for your sequencing data, please visit [SingletCode's homepage](https://goyallab.github.io/SingletCodeWebsite/).
+For more information, please visit [SingletCode's homepage](https://goyallab.github.io/SingletCodeWebsite/).

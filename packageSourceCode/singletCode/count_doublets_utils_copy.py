@@ -12,13 +12,12 @@ import matplotlib.pyplot as plt
 from .general_utility_functions import check_input
 random.seed(2022)
 
-def count_doublets(df, output_prefix = None, dataset_name = None, sample_type = "RNA", 
+def count_doublets(df, output_prefix = None, dataset_name = None,
                    save_all_singlet_categories = False, save_plot_umi = False,
                    umi_cutoff_method = "ratio", umi_cutoff_ratio=3 / 4e5, umi_cutoff_percentile = None, min_umi_good_data_cutoff=2,
                    umi_diff_threshold=50, dominant_threshold=10):
     # TODO: write check_input function
     check_input(df, output_path = output_prefix, dataset_name = dataset_name,
-                sample_type = sample_type, 
                 save_all_singlet_categories = save_all_singlet_categories,
                 save_plot_umi = save_plot_umi,
                 umi_cutoff_method = umi_cutoff_method)
@@ -52,17 +51,8 @@ def count_doublets(df, output_prefix = None, dataset_name = None, sample_type = 
         #Counting nUMI for each barcode, cell ID combination
         cur_freq_df = cur_sample_df.groupby(['cellID', 'barcode', 'sample']).size().reset_index()
         cur_freq_df.columns = ['cellID', "barcode", 'sample', "nUMI"]
-
-
-        # If sample_type is ATAC, we remove all barcodes with greater than 2 UMI
-        if sample_type == "ATAC":
-            print("INFO: the barcodes are from ATACseq data and the UMI cutoff is 2 for all barcodes.")
-            print(cur_sample_num)
-            cur_freq_df = cur_freq_df[cur_freq_df['nUMI'] <= 2].reset_index(drop=True)
-            calculated_umi_cutoff = 1
-            cur_umi_adjusted_cutoff = 1
         
-        elif umi_cutoff_method == "percentile":
+        if umi_cutoff_method == "percentile":
             print("INFO: Using percentile filtering by choosing barcodes whose UMI counts is in top {} percentile".format(umi_cutoff_percentile))
             calculated_umi_cutoff = math.ceil(np.percentile(cur_freq_df["nUMI"], umi_cutoff_percentile))
             cur_umi_adjusted_cutoff = max(calculated_umi_cutoff, min_umi_good_data_cutoff)

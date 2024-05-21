@@ -43,11 +43,6 @@ def count_doublets(input_file, output_prefix, umi_cutoff_ratio=3 / 4e5, umi_diff
     else:
         print("More than 3 columns. Quiting...")
         return None
-    # subset for cellTag
-    if "cellTag" in input_file:
-        # strings_to_keep = ['d2-RNA-5', 'd2-ATAC-5', 'B4D21-RNA-r2-1', 'B4D21-ATAC-r2-1']
-        strings_to_keep = ['d2-RNA-5', 'B4D21-RNA-r2-1']
-        df = df[df['sampleNum'].isin(strings_to_keep)]
 
     df_sum = df['sampleNum'].value_counts()
     all_samples = df['sampleNum'].unique()
@@ -68,16 +63,7 @@ def count_doublets(input_file, output_prefix, umi_cutoff_ratio=3 / 4e5, umi_diff
         cur_freq_df = cur_sample_df.groupby(['cellID', 'BC50StarcodeD8', 'sampleNum']).size().reset_index()
         cur_freq_df.columns = ['cellID', "fatemapID", 'sampleNum', "nUMI"]
 
-        # if it is atac data, then the sample id may have ATAC in it, for instance for the cellTag dataset
-        # or it is the watermelon dataset
-        # in this case we remove all cells with greater than 2 UMI
-        # if ("watermelon" in input_file) or ("ATAC" in cur_sample_num):
-        if "ATAC" in str(cur_sample_num):
-            print(cur_sample_num)
-            cur_freq_df = cur_freq_df[cur_freq_df['nUMI'] <= 2].reset_index(drop=True)
-            calculated_umi_cutoff = 1
-            cur_umi_adjusted_cutoff = 1
-        elif umi_cutoff_ratio >= 1:
+        if umi_cutoff_ratio >= 1:
             cur_umi_plot_file = output_prefix + "_sample_" + str(cur_sample_num) + ".png"
             print("INFO: Using percentile filtering. e.g. Pass in 1 for filtering out the cells with lowest 1 percent "
                   "UMI count.")

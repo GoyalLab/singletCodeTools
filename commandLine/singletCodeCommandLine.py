@@ -1,52 +1,43 @@
 """
-SingletCode helpful scripts
-
 Description:
-    This script contains two modules.
-    The count module generates the singlet files for the input data sheet.
-    The watermelon module uses the miseq dial out files to create the cell ID, 
-    barcode and sample file and can be used as input to singlet code module
+    This script contains two modules:
+    - Count Module: Generates the singlet files for the input data sheet.
+    - Watermelon Module: Uses the MiSeq dial-out files to create the cell ID, barcode, and sample file. These outputs can then be used as input for the singlet code module.
 
 Usage:
-    python singletCode.py count -i /path/to/input.txt -o /path/to/output
-    OR
-    python file_processor.py --input_file /path/to/input.txt --output_file /path/to/output.txt
-    OR python3 singletCode.py watermelon -i /path/to/fastq/files -o path/to/save/csv/file 
-    -s path/sample/sheet -use10X False -input10X path/to/barcodes/tsv 
+    For the Count Module:
+    
+    .. code-block:: bash
+    
+        python singletCode.py count -i /path/to/input.txt -o /path/to/output
 
-Options for count module:
-    -i --input_file    Specify the path to the input barcode file.
-    -o --output_prefix   Specify the path to the output prefix.
-    -f --force  Force overwrite if output file already exists
-    -u --cutoff UMI cutoff ratio
+    For the Watermelon Module:
+    
+    .. code-block:: bash
+    
+        python3 singletCode.py watermelon -i /path/to/fastq/files -o path/to/save/csv/file -s path/sample/sheet -use10X False -input10X path/to/barcodes/tsv 
 
-Options for watermelon module:
-    -i --inputFolder Specify the path to the folder containing the fastq folders output from miseq
-    -s --sampleSheet Specify the path to the sample sheet in .csv format that contains sample name and sample number such that it matches the names of the fastq files (expected naming format which is typical for miseq output files: sampleName_sampleNumber_L001_ReadNumber_001.fastq.gz; an example: Sample-1_S1_L001_R1_001.fastq.gz)
-    -o --outputFolder Specify the path to save the output csv file containing the barcode, cell ID information
-    -outputName Specify the name of output csv file
-    --use10X Specify if a 10X object is provided which has the same cells as the ones in fastq; if provided, the cells in the fastq file will be filtered out if not prsent in the 10X object
-    --input10X Path to the barcodes.tsv.gz or barcodes.tsv which contains cell IDs
+Options for Count Module:
+    - -i, --input_file: Specify the path to the input barcode file.
+    - -o, --output_prefix: Specify the path to the output prefix.
+    - -f, --force: Force overwrite if the output file already exists.
+    - -u, --cutoff: UMI cutoff ratio.
+    - -d, --umi_diff_threshold: Minimum difference in UMI between UMI count for dominant UMI and median UMI count.
+    - -m, --min_umi_good_data_cutoff: Minimum UMI count for a barcode to be dominant.
+    - -g, --min_umi_filter_threshold: Minimum UMI filter threshold.
 
-Author:
-    Ziyang Zhang (Charles)
-    Keerthana M Arun
+Options for Watermelon Module:
+    - -i, --inputFolder: Specify the path to the folder containing the fastq folders output from MiSeq.
+    - -s, --sampleSheet: Specify the path to the sample sheet in .csv format that contains sample name and sample number. This should match the names of the fastq files (e.g., Sample-1_S1_L001_R1_001.fastq.gz).
+    - -o, --outputFolder: Specify the path to save the output CSV file containing the barcode, cell ID information.
+    - -outputName: Specify the name of the output CSV file.
+    - --use10X: Specify if a 10X object is provided which has the same cells as those in fastq. If provided, cells in the fastq file will be filtered out if not present in the 10X object.
+    - --input10X: Path to the barcodes.tsv.gz or barcodes.tsv which contains cell IDs.
+
+Authors:
+    - Ziyang Zhang (Charles)
+    - Keerthana M Arun
 """
-
-from scipy import io
-import pandas as pd
-import os
-import numpy as np
-from pathlib import Path
-import pathlib
-import argparse
-import shutil
-import os
-import numpy as np
-import argparse
-import shutil
-from count_doublets_utils import *
-from watermelonUtilityFunctions import checkInputs, processFastqFiles
 
 ################################
 #                              #
