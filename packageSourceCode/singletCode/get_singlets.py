@@ -31,12 +31,12 @@ def get_singlets(sample_sheet, output_path = None, dataset_name = None,
             the minimum UMI count required to be in the top umi_cutoff_percentile'th percentile. There is no default and if umi_cutoff_method is set to "percentile", then manually set this parameter.
         min_umi_cutoff (int, optional): This is the absolute minimum number of UMIs that need to be associated with 
             a barcode for it to be considered a barcode. However, the actual umi_cutoff used will be the greater 
-            of min_umi_cutoff and the cutoff calculated using umi_cutoff_method. Defaults to 10.
+            of min_umi_cutoff and the cutoff calculated using umi_cutoff_method. Defaults to 2.
         umi_dominant_threshold (int, optional): The minimum UMI count to be associated with a barcode for it to be 
-            considered to be a potential dominant barcode in a cell. Defaults to 5.
+            considered to be a potential dominant barcode in a cell. Defaults to 10.
         umi_diff_threshold (int, optional): This is the minimum difference between UMI counts associated with a 
             potential dominant barcode present within a cell and the median UMI count of all barcodes associated 
-            with the cell. If a cell has only one dominant barcode, it will be counted. Defaults to 2.
+            with the cell. If a cell has only one dominant barcode, it will be counted. Defaults to 50.
 
     Returns:
         tuple: A 2-tuple containing:
