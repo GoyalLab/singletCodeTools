@@ -9,7 +9,7 @@ Usage:
     
     .. code-block:: bash
     
-        python singletCode.py count -i /path/to/input.txt -o /path/to/output
+        python singletCodeCommandLine.py count -i /path/to/input.txt -o /path/to/output
 
     For the Watermelon Module:
     
