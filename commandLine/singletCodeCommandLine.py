@@ -95,8 +95,8 @@ if __name__ == "__main__":
     parser_watermelon.add_argument('--outputName', default="watermelonBarcodeUMIcount.csv",
                                    type=str,
                                    help='Name of output csv file', required=False)
-    parser_watermelon.add_argument('--use10X', type=bool,
-                                   help='if 10X cell IDs to be used to match cells in fastq files', required=False, default=False)
+    parser_watermelon.add_argument('--use10X', action='store_true',
+                                   help='Use it as a flag if 10X cell IDs to be used to match cells in fastq files', required=False, default=False)
     parser_watermelon.add_argument('--input10X', type=str,
                                    help='Path to cell IDs of 10X object', required=False)
                                    
