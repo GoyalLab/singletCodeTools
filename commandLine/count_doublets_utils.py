@@ -149,7 +149,7 @@ def count_doublets(input_file, output_prefix, umi_cutoff_ratio=3 / 4e5, umi_diff
         singlets_multi_barcode_file = output_prefix + f"_{cur_sample_num}" + "_multi_barcode_singlets.txt"
         singlets_dominant_umi_file = output_prefix + f"_{cur_sample_num}" + "_dominant_umi_singlets.txt"
         multiplets_file = output_prefix + f"_{cur_sample_num}" + "_multiplets.txt"
-        curr_singlet_file = singlets_file + + f"_{cur_sample_num}" + "_singlets_all.txt"
+        curr_singlet_file = singlets_file + f"_{cur_sample_num}" + "_singlets_all.txt"
         with open(singlets_single_barcode_file, "w+") as fp:
             fp.writelines("%s\n" % l for l in singlets)
         with open(singlets_multi_barcode_file, "w+") as fp:
