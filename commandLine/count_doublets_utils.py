@@ -24,7 +24,7 @@ def count_doublets(input_file, output_prefix, umi_cutoff_ratio=3 / 4e5, umi_diff
         return None
 
     # TODO: write a merge function at the end
-    singlets_file = output_prefix + "_singlets_all.txt"
+    singlets_file = output_prefix 
 
     if (Path(singlets_file).is_file() or Path(singlets_file).is_file()) and overwrite == False:
         print("Output files exist for input: {}\nUse `overwrite` parameter to overwrite".format(input_file))
@@ -136,26 +136,27 @@ def count_doublets(input_file, output_prefix, umi_cutoff_ratio=3 / 4e5, umi_diff
         cur_singlets = cur_good_data[cur_good_data["label"] == "Singlet"]["cellID"].values
         singlets_combo_for_doublets_simulation = [", ".join(map(str, comb)) for comb in combinations(cur_singlets, 2)]
         random_index = random.sample(range(0, len(singlets_combo_for_doublets_simulation)), len(cur_singlets))
-        cur_out_file = output_prefix + "_{}_singlet_pairs.csv".format(cur_sample_num)
-        with open(cur_out_file, "w+") as fp:
-            fp.writelines("%s\n" % singlets_combo_for_doublets_simulation[idx] for idx in random_index)
+        # cur_out_file = output_prefix + "_{}_singlet_pairs.csv".format(cur_sample_num)
+        # with open(cur_out_file, "w+") as fp:
+        #     fp.writelines("%s\n" % singlets_combo_for_doublets_simulation[idx] for idx in random_index)
 
         # with open(simulated_doublets_file, "w+") as fp:
         #     singlets_combo_for_doublets_simulation = [", ".join(map(str, comb)) for comb in combinations(singlets_step3, 2)]
         #     random_index = random.sample(range(0, len(singlets_combo_for_doublets_simulation)), len(singlets_step3))
         #     fp.writelines("%s\n" % singlets_combo_for_doublets_simulation[idx] for idx in random_index)
         # initialize output files
-        singlets_single_barcode_file = output_prefix + f"_{cur_sample_num}_" + "_single_barcode_singlets.txt"
-        singlets_multi_barcode_file = output_prefix + f"_{cur_sample_num}_" + "_multi_barcode_singlets.txt"
-        singlets_dominant_umi_file = output_prefix + f"_{cur_sample_num}_" + "_dominant_umi_singlets.txt"
-        multiplets_file = output_prefix + f"_{cur_sample_num}_" + "_multiplets.txt"
+        singlets_single_barcode_file = output_prefix + f"_{cur_sample_num}" + "_single_barcode_singlets.txt"
+        singlets_multi_barcode_file = output_prefix + f"_{cur_sample_num}" + "_multi_barcode_singlets.txt"
+        singlets_dominant_umi_file = output_prefix + f"_{cur_sample_num}" + "_dominant_umi_singlets.txt"
+        multiplets_file = output_prefix + f"_{cur_sample_num}" + "_multiplets.txt"
+        curr_singlet_file = singlets_file + + f"_{cur_sample_num}" + "_singlets_all.txt"
         with open(singlets_single_barcode_file, "w+") as fp:
             fp.writelines("%s\n" % l for l in singlets)
         with open(singlets_multi_barcode_file, "w+") as fp:
             fp.writelines("%s\n" % l for l in two_barcode_singlets)
         with open(singlets_dominant_umi_file, "w+") as fp:
             fp.writelines("%s\n" % l for l in UMI_thres_singlets)
-        with open(singlets_file, "w+") as fp:
+        with open(curr_singlet_file, "w+") as fp:
             fp.writelines("%s\n" % l for l in singlets_step3)
         with open(multiplets_file, "w+") as fp:
             fp.writelines("%s\n" % l for l in multiplets_step3)
